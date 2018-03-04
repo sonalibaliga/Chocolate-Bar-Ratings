@@ -8,6 +8,11 @@
 #
 
 library(shiny)
+library(ggplot2)
+library(dplyr)
+
+#setwd("~/Desktop/Chocolate-Bar-Ratings")
+chocolate <- read.csv("./ChocolateBarRatings/flavors_of_cacao.csv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
