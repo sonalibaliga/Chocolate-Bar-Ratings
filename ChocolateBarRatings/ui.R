@@ -13,20 +13,35 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Chocolate Bar Ratings"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+      sliderInput(inputId = "cocao%", label = "What cocoa percentage would you like in your chocolate(s)?",
+                  min = 40, max = 100, value = c(60, 80)),
+      checkboxGroupInput("company", "Which country/countries do you want your chocolate to be availible in?",
+                   choices =  list("Brazil"="Brazil","Canada"="Canada","Chile"="Chile","Colombia"="Colombia","Costa Rica"="Costa Rica",
+                                   "Czech Republic"="Czech Republic","Denmark"="Denmark","Domincan Republic"="Domincan Republic",
+                                   "Ecuador"="Ecuador","Fiji"="Fiji","Finland"="Finland","France"="France","Germany"="Germany", 
+                                   "Ghana"="Ghana","Grenada"="Grenada","Guatemala"="Guatemala","Honduras"="Honduras","Hungary"="Hungary",
+                                   "Iceland"="Iceland","India"="India","Ireland"="Ireland","Israel"="Israel","Italy"="Italy","Japan"="Japan",
+                                   "Lithuania"="Lithuania","Madagascar"="Madagascar","Martinique"="Martinique","Mexico"="Mexico","Nertherlands"="Nertherlands",
+                                   "New Zealand"="New Zealand","Nicaragua"="Nicaragua","Peru"="Peru","Philippines"="Philippines","Poland"="Poland", 
+                                   "Portugal"="Portugal","Puerto Rico"="Puerto Rico","Russia"="Russia","Sao Tome"="Sao Tome","Scotland"="Scotland",
+                                   "Singapore"="Singapore","South Africa"="South Africa","South Korea"="South Korea","Spain"="Spain","St.Lucia"="St.Lucia",
+                                   "Suriname"="Suriname","Sweden"="Sweden","Switzerland"="Switzerland","U.K"="U.K","U.S.A"="U.S.A",
+                                   "Venezuela"="Venezuela","Vietnam"="Vietnam","Wales"="Wales")),
+      textInput("beanorigin", "Choose a bean origin preferance, if any.", "If none, type NONE")
     ),
     
     # Show a plot of the generated distribution
     mainPanel(
+      tabsetPanel(
+       tabPanel("User Documentation", vertatimTextOutput("User Documentation")),
+       tabPanel("Interactive",),
+       tabPanel("Interactive2",)
+      )
        plotOutput("distPlot")
     )
   )
