@@ -30,8 +30,8 @@ shinyUI(fluidPage(theme="bootstrap.css",
                                                 "Liberia"="Liberia","Madagascar"="Madagascar","Malaysia"="Malaysia","Martinique"="Martinique","Mexico"="Mexico","Nicaragua"="Nicaragua","Peru"="Peru",
                                                 "Philippines"="Philippines","PNG"="PNG","Principe"="Principe","Puerto Rico"="Puerto Rico","Samoa"="Samoa","Sao Tome"="Sao Tome","Solomon Islands"="Solomon Islands",
                                                 "South America"="South America","Sri Lanka"="Sri Lanka","St. Lucia"="St. Lucia","Suriname"="Suriname","Tanzania"="Tanzania","Tobago"="Tobago","Togo"="Togo","Trinidad"="Trinidad",
-                                                "Uganda"="Uganda","Vanuatu"="Vanuatu","Vanezuela"="Vanezuela","Vietnam"="Vietnam","West Africa"="West Africa"), multiple = TRUE),
-                     verbatimTextOutput("selected"),
+                                                "Uganda"="Uganda","Vanuatu"="Vanuatu","Vanezuela"="Vanezuela","Vietnam"="Vietnam","West Africa"="West Africa"))
+                                 ),
     
     conditionalPanel(condition="input.selectedtab==3",
                      selectInput("property", label = "Choose a property to filter ratings by",
