@@ -1,16 +1,28 @@
 library(shiny)
-shinyUI(fluidPage(theme="bootstrap.css",
+library(markdown)
+
+shinyUI(fluidPage(theme="style.css",
+                  
+  headerPanel(title=div(img(src="cocoa.png"), "Flavors of Cocoa Ratings")),
+  headerPanel(""),
+  headerPanel(""),
+  headerPanel(""),
+  headerPanel(""),
+  headerPanel(""),
   
-  headerPanel("Chocolate Bar Ratings"),
+  tags$br(),
+  tags$br(),
+  
   sidebarPanel(
     
     ## conditionalPanel() functions for selected tab
-    conditionalPanel(condition="input.selectedtab==1",h4("Some information that we want to emphasize with the documentation will go here. This is for information that we want to \"Stand out\"")),
+    conditionalPanel(condition="input.selectedtab==1",h4("This panel will be used to display some important information that we want to stand out to our users when they first load this application. Useful info or maybe even an introduction will suffice."), 
+                     tags$br(), 
+                     h4("Content to be added later.")),
     conditionalPanel(condition="input.selectedtab==2",
-                     sliderInput(inputId = "cocao%", label = "Choose a cocoa percentage range for your chocolate(s)",
+                     sliderInput(inputId = "cocao%", label = "Cocoa Percentage Range",
                                  min = 40, max = 100, value = c(60, 80)),
-                     
-                     selectInput("beanorigin", "Choose a bean origin preferance. If none, choose NONE",
+                     selectInput("beanorigin", "Choose a bean origin preference (if any)",
                                  choices = list("NONE"="NONE","Australia"="Australia","Belize"="Belize","Bolivia"="Bolivia","Brazil"="Brazil","Burma"="Burma","Cameroon"="Cameroon",
                                                 "Carribean"="Carribean","Colombia"="Colombia","Congo"="Congo","Costa Rica"="Costa Rica","Cuba"="Cuba","Dominican Republic"="Dominican Republic",
                                                 "Ecuador"="Ecuador","El Salvador"="El Salvador","Fiji"="Fiji","Gabon"="Gabon","Ghana"="Ghana","Grenada"="Grenada","Guatemala"="Guatemala",
@@ -19,8 +31,7 @@ shinyUI(fluidPage(theme="bootstrap.css",
                                                 "Philippines"="Philippines","PNG"="PNG","Principe"="Principe","Puerto Rico"="Puerto Rico","Samoa"="Samoa","Sao Tome"="Sao Tome","Solomon Islands"="Solomon Islands",
                                                 "South America"="South America","Sri Lanka"="Sri Lanka","St. Lucia"="St. Lucia","Suriname"="Suriname","Tanzania"="Tanzania","Tobago"="Tobago","Togo"="Togo","Trinidad"="Trinidad",
                                                 "Uganda"="Uganda","Vanuatu"="Vanuatu","Vanezuela"="Vanezuela","Vietnam"="Vietnam","West Africa"="West Africa"), selected = "NONE"),
-                    
-                      checkboxGroupInput("country", "Which country/countries do you want your chocolate to be availible in?")),
+                     checkboxGroupInput("company", "Country/Countries of availability",
                                         choices =  list("NONE"="NONE","Brazil"="Brazil","Canada"="Canada","Chile"="Chile","Colombia"="Colombia","Costa Rica"="Costa Rica",
                                                         "Czech Republic"="Czech Republic","Denmark"="Denmark","Domincan Republic"="Domincan Republic",
                                                         "Ecuador"="Ecuador","Fiji"="Fiji","Finland"="Finland","France"="France","Germany"="Germany",
@@ -31,31 +42,25 @@ shinyUI(fluidPage(theme="bootstrap.css",
                                                         "Portugal"="Portugal","Puerto Rico"="Puerto Rico","Russia"="Russia","Sao Tome"="Sao Tome","Scotland"="Scotland",
                                                         "Singapore"="Singapore","South Africa"="South Africa","South Korea"="South Korea","Spain"="Spain","St.Lucia"="St.Lucia",
                                                         "Suriname"="Suriname","Sweden"="Sweden","Switzerland"="Switzerland","U.K"="U.K","U.S.A"="U.S.A",
-                                                        "Venezuela"="Venezuela","Vietnam"="Vietnam","Wales"="Wales")
-                     
-                     
-                                 ),
+                                                        "Venezuela"="Venezuela","Vietnam"="Vietnam","Wales"="Wales"), selected = "NONE")
+    ),
     
     conditionalPanel(condition="input.selectedtab==3",
                      selectInput("property", label = "Choose a property to filter ratings by",
-                                 choices = list("Company"="Company", "Specific Bean Origin"="Specific Bean Origin", "Cocoa Percent"="Cocoa Percent", "Location"="Location",
-                                                "Bean Type"="Bean Type", "Broad Bean Origin"="Broad Bean Origin"),
-                                 selected = "Cocoa Percent"),
-                     ## figure out a way to make max the max number of options possible through some sort of variable manipulation
-                     sliderInput(inputId = "numratings", label = "Choose the quantity of ratings to show",
-                                 min = 1, max = 1795, value=1)
-                     )
+                                 choices = list("Company"="Company", "Cocoa Percent"="Cocoa Percent", "Location"="Location",
+                                                "Broad Bean Origin"="Broad Bean Origin"),
+                                 selected = "Cocoa Percent")
+    )
     
   ),
   mainPanel(
     # do not change tabpanel values
     tabsetPanel(
-      tabPanel("Documentation", value=1, helpText("This is placeholder text for our documentation.
-                                          ")),
-      tabPanel("Table", value=2 ## Figure out outputs 
-               ),
-      tabPanel("Ratings Visualization", value=3, plotOutput("distPlot")), 
+      tabPanel("Documentation", value=1, icon=icon("book", lib="font-awesome"), helpText("This is placeholder text for our documentation.
+                                                                                         ")),
+      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome")),
+      tabPanel("Visualize Ratings", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
       id = "selectedtab"
       )
-    )
-  ))
+  )
+))
