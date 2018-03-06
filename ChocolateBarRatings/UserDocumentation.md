@@ -1,4 +1,4 @@
-## Chocolate Bar Ratings
+# Chocolate Bar Ratings
 
 **About this project**
 For this INFO 201 final project, we used the _Chocolate Bar Ratings_ dataset to create an app that presents the user with the perfect list of chocolate companies based on the specifications they provide. In our app, we have two tabs that contribute different information.
