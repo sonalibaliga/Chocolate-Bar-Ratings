@@ -3,7 +3,7 @@ library(markdown)
 
 shinyUI(fluidPage(theme="style.css",
                   
-  headerPanel(title=div(img(src="cocoa.png"), "Flavors of Cocoa Ratings")),
+  headerPanel(title=div(img(src="cocoa.png"), "Flavors of Cocoa Ratings"), windowTitle = "Flavors of Cocoa Ratings"),
   headerPanel(""),
   headerPanel(""),
   headerPanel(""),
