@@ -18,13 +18,27 @@ chocolate <- read.csv("./ChocolateBarRatings/flavors_of_cacao.csv", sep = "\t", 
 shinyServer(function(input, output) {
    
   output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    if(input$property == "Company") {
+      relevant_data <- group_by(chocolate, Company...Maker.if.known.)
+      rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
+      rating_mean <- head(rating_mean, 10)
+      ggplot(rating_mean, aes(Company...Maker.if.known., mean_rating)) + geom_col()
+    } else if(input$property == "Location") {
+      relevant_data <- group_by(chocolate, Company.Location)
+      rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
+      rating_mean <- head(rating_mean, 10)
+      ggplot(rating_mean, aes(Company.Location, mean_rating)) + geom_col()
+    } else if(input$property == "Cocoa Percent") {
+      relevant_data <- group_by(chocolate, Cocoa.Percent)
+      rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
+      rating_mean <- head(rating_mean, 10)
+      ggplot(rating_mean, aes(Cocoa.Percent, mean_rating)) + geom_col()
+    } else {
+      relevant_data <- group_by(chocolate, Broad.Bean.Origin)
+      rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
+      rating_mean <- head(rating_mean, 10)
+      ggplot(rating_mean, aes(Broad.Bean.Origin, mean_rating)) + geom_col()
+    }
     
   })
   
