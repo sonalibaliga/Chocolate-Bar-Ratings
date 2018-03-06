@@ -1,0 +1,57 @@
+/*
+Shiny Theme: Cocoa
+Author: Team SPAM
+License: MIT
+*/
+
+
+@import url('//fonts.googleapis.com/css?family=Lato:300|Roboto:300');
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #9c886f;
+  background-image: url('drip.png');
+  background-position: left top;
+  background-repeat: repeat-x;
+}
+
+.well {
+  background-color: #47261a;
+  color: #ddc08d;
+  border-radius: 10px;
+  border: none;
+}
+
+::selection {
+  background: #ddc08d
+}
+
+::-moz-selection {
+  background: #ddc08d
+}
+
+.irs-single {background: tomato}
+
+[class|='irs-bar'] {
+  background: #ddc08d;
+  border: #ddc08d
+}
+
+.tabbable > .nav > li > a {
+  background-color: #47261a;
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: none;
+}
+
+.tabbable > .nav > li[class=active] > a {
+  background-color: #71482f;
+  color: #fff;
+  border: none;
+}
