@@ -22,22 +22,26 @@ shinyServer(function(input, output) {
       relevant_data <- group_by(chocolate, Company...Maker.if.known.)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
       rating_mean <- head(rating_mean, 10)
-      ggplot(rating_mean, aes(Company...Maker.if.known., mean_rating)) + geom_col()
+      ggplot(rating_mean, aes(Company...Maker.if.known., mean_rating)) + 
+        geom_col(aes(fill = Company...Maker.if.known.)) 
     } else if(input$property == "Location") {
       relevant_data <- group_by(chocolate, Company.Location)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
       rating_mean <- head(rating_mean, 10)
-      ggplot(rating_mean, aes(Company.Location, mean_rating)) + geom_col()
+      ggplot(rating_mean, aes(Company.Location, mean_rating)) + 
+        geom_col(aes(fill = Company.Location)) 
     } else if(input$property == "Cocoa Percent") {
       relevant_data <- group_by(chocolate, Cocoa.Percent)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
       rating_mean <- head(rating_mean, 10)
-      ggplot(rating_mean, aes(Cocoa.Percent, mean_rating)) + geom_col()
+      ggplot(rating_mean, aes(Cocoa.Percent, mean_rating)) + 
+        geom_col(aes(fill = Cocoa.Percent)) 
     } else {
       relevant_data <- group_by(chocolate, Broad.Bean.Origin)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
       rating_mean <- head(rating_mean, 10)
-      ggplot(rating_mean, aes(Broad.Bean.Origin, mean_rating)) + geom_col()
+      ggplot(rating_mean, aes(Broad.Bean.Origin, mean_rating)) + 
+        geom_col(aes(fill = Broad.Bean.Origin)) 
     }
     
   })
