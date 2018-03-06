@@ -78,6 +78,7 @@ body {
 }
 
 .tabbable > .nav > li > a {
+  font-family: "Roboto", sans-serif;
   background-color: #47261a;
   color: #fff;
   border-top-left-radius: 10px;
