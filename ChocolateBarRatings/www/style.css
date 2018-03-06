@@ -2,11 +2,46 @@
 Shiny Theme: Cocoa
 Author: Team SPAM
 License: MIT
+
+Animations made possible by @dragoeco
 */
 
 
 @import url('//fonts.googleapis.com/css?family=Lato:300|Roboto:300');
 
+/* ANIMATIONS */
+@-webkit-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-moz-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-o-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-ms-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+
+/* MAIN */
 h1 {
   font-family: 'Lato', sans-serif;
   color: #fff;
@@ -53,5 +88,29 @@ body {
 .tabbable > .nav > li[class=active] > a {
   background-color: #71482f;
   color: #fff;
+  border: none;
+}
+
+.tabbable > .nav > li > a:hover > i{
+  display: inline-block;
+  position: relative;
+  -moz-animation: bounce 0.5s infinite linear;
+  -o-animation: bounce 0.5s infinite linear;
+  -webkit-animation: bounce 0.5s infinite linear;
+  animation: bounce 0.5s infinite linear;
+  colr:000;
+}
+
+.help-block {
+  color: #fff;
+}
+
+.tab-content {
+  padding-top: 5px;
+  padding-left: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   border: none;
 }
