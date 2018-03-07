@@ -18,7 +18,8 @@ chocolate$Bean.Type <- NULL
 
 # Define server logic required to draw table 
 shinyServer(function(input, output) {
-<<<<<<< HEAD
+  
+  # Generate random cacao fact from action button
   fact <- eventReactive(input$factButton, {
     generateFact()
   })
@@ -32,10 +33,8 @@ shinyServer(function(input, output) {
     }
   })
   
-=======
-  
+
   # Tab 2 table output
->>>>>>> 3c6588530bbaed22f7683e57887e570125998a3e
   output$table <- renderDataTable({
     data <- chocolate
     
