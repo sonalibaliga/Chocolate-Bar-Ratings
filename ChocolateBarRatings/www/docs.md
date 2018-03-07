@@ -3,6 +3,8 @@
 ### General Information
 **Crazy Cacao** is an interactive web application built using the [Shiny](https://shiny.rstudio.com/) framework for R, utilizing the `flavors_of_cacao` dataset from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings). This application serves as an easy way for fresh cocoa enthusiasts and chocolate lovers alike to find the ideal tasting cacao that best suits their preferences. The main application is broken down into two different subsets, which include the *Rated Companies* and *Cacao Visualizations* utilities.
 
+***
+
 #### Rated Companies
 The **Rated Companies** utility displays a table of companies in descending order of cacao rating. The purpose of this utility is to provide information about the best cacao companies by filtering data based on preference inputs. The utility has 3 widgets:
 
@@ -13,6 +15,8 @@ The **Rated Companies** utility displays a table of companies in descending orde
 The table on the right hand side of the widgets will display results based on user-defined inputs. The dropdown above the table can be used to display more results on the page. The page buttons below the table can be used to navigate through multiple pages of results.
 
 <img src="table.png" width="75%" style="display: block; margin: 0 auto; max-width: 530px;">
+
+***
 
 #### Cacao Visualizations
 The **Cacao Visualizations** utility displays a bar graph containing the top ten rated values of a user-defined category based on the collective average ratings for that specific category. This utility only contains a single dropdown widget:
@@ -30,6 +34,7 @@ The container on the right-hand side of the widget will display a graph with the
 * [Peter Yee](https://github.com/peter-yee)
 * [Sonali Baliga](https://github.com/sonalibaliga)
 * [Melissa Do](https://github.com/melissado)
+
 ***
 ### Sources & Credit
 All of the resources that we used to build this application have been cited below. Crazy Cacao is also open-sourced on [GitHub](https://github.com/sonalibaliga/Chocolate-Bar-Ratings).
