@@ -31,7 +31,8 @@ shinyServer(function(input, output) {
       ggplot(rating_mean, aes(Company...Maker.if.known., mean_rating)) + 
         geom_col(aes(fill = Company...Maker.if.known.)) + 
         labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") +
-        theme(axis.text.x = element_text(angle = 60, hjust = 1))
+        theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+        theme(legend.position="none")
     } else if(input$property == "Location") {
       relevant_data <- group_by(chocolate, Company.Location)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
@@ -39,14 +40,16 @@ shinyServer(function(input, output) {
       ggplot(rating_mean, aes(Company.Location, mean_rating)) + 
         geom_col(aes(fill = Company.Location)) + 
         labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") + 
-        theme(axis.text.x = element_text(angle = 60, hjust = 1))
+        theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
+        theme(legend.position="none")
     } else if(input$property == "Cocoa Percent") {
       relevant_data <- group_by(chocolate, Cocoa.Percent)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
       rating_mean <- head(rating_mean, 10)
       ggplot(rating_mean, aes(Cocoa.Percent, mean_rating)) + 
         geom_col(aes(fill = Cocoa.Percent)) + 
-        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating")
+        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") + 
+        theme(legend.position="none")
     } else {
       relevant_data <- group_by(chocolate, Broad.Bean.Origin)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
@@ -54,7 +57,8 @@ shinyServer(function(input, output) {
       ggplot(rating_mean, aes(Broad.Bean.Origin, mean_rating)) + 
         geom_col(aes(fill = Broad.Bean.Origin)) + 
         labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") + 
-        theme(axis.text.x = element_text(angle = 60, hjust = 1))
+        theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
+        theme(legend.position="none")
     }
     
   })
