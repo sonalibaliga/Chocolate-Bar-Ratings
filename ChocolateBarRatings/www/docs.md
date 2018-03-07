@@ -22,3 +22,26 @@ The **Cacao Visualizations** utility displays a bar graph containing the top ten
 The container on the right-hand side of the widget will display a graph with the top ten rated values of the category that was selected. For example, `Cocoa Percent` is selected from the dropdown by default. The displayed graph will show the top ten most popular cocoa percentages based on their collective average ratings.
 
 <img src="graph.png" width="75%" style="display: block; margin: 0 auto; max-width:500px;">
+
+***
+### Authors
+[Crazy Cacao](https://github.com/sonalibaliga/Chocolate-Bar-Ratings) was created by and is currently being maintained by Team SPAM. The application was originally created as a final project submission for the [INFO201](https://ischool.uw.edu/) course at the [University of Washington](http://www.washington.edu/) during the Winter quarter of 2018. Team SPAM's members consist of:
+* [Arman Shah](https://github.com/itsarman)
+* [Peter Yee](https://github.com/peter-yee)
+* [Sonali Baliga](https://github.com/sonalibaliga)
+* [Melissa Do](https://github.com/melissado)
+***
+### Sources & Credit
+All of the resources that we used to build this application have been cited below. Crazy Cacao is also open-sourced on [GitHub](https://github.com/sonalibaliga/Chocolate-Bar-Ratings).
+#### R Dependencies
+* [shiny](https://shiny.rstudio.com/)
+* [markdown](https://rmarkdown.rstudio.com/)
+* [ggplot2](http://ggplot2.org)
+* [dplyr](https://www.r-project.org/nosvn/pandoc/dplyr.html)
+
+#### Assets
+* **Logo** - [FiveClipArt](https://www.fiveclipart.com)
+* **Dataset** - [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings)
+* **Icons** - [Font Awesome](https://fontawesome.com/)
+* **Header Image** - [pngtree](https://pngtree.com/free-png-vectors/chocolate-drops)
+* **Cacao Facts** - [Fine Dining Lovers](https://www.finedininglovers.com/stories/cacao-facts/)
