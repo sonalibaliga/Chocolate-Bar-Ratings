@@ -12,11 +12,11 @@ library(ggplot2)
 library(dplyr)
 
 #setwd("~/Desktop/Chocolate-Bar-Ratings")
-chocolate <- read.csv("C:/Users/Student User/Desktop/Chocolate-Bar-Ratings/ChocolateBarRatings/flavors_of_cacao.csv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+chocolate <- read.csv("./ChocolateBarRatings/flavors_of_cacao.csv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   
+  
   output$distPlot <- renderPlot({
     if(input$property == "Company") {
       relevant_data <- group_by(chocolate, Company...Maker.if.known.)
@@ -47,3 +47,7 @@ shinyServer(function(input, output) {
         geom_col(aes(fill = Broad.Bean.Origin)) + 
         labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating")
     }
+    
+  })
+  
+})
