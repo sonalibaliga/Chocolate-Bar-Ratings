@@ -17,7 +17,7 @@ chocolate <- read.csv("./flavors_of_cacao.csv", header = TRUE, stringsAsFactors 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   
-  output$table <- renderTable({
+  output$table <- renderDataTable({
     data <- chocolate
     data$Specific.Bean.Origin.or.Bar.Name <- NULL
     data$REF <- NULL
@@ -40,7 +40,20 @@ shinyServer(function(input, output) {
       data <- filter(data, Company.Location == input$company)
     }
     data <- arrange(data, desc(Rating))
-  })
+  },
+    options = list(orderClasses = TRUE,
+                   lengthMenu = list(c(25,50,75,100,-1), c('25','50','75','100','All')),
+                   pageLength = 25,
+                   columns = list(
+                     list(title = 'Company'),
+                     list(title = 'Cocoa Percent'),
+                     list(title = 'Location'),
+                     NULL,
+                     list(title = 'Bean Origin')
+                   ),
+                   ordering = F
+    )
+  )
   
   output$distPlot <- renderPlot({
     # if else to select what variable is being chosen to be grouped by
