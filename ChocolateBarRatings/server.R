@@ -36,7 +36,7 @@ shinyServer(function(input, output) {
       data <- filter(data, Broad.Bean.Origin == input$beanorigin)
     }
     if (input$country != "NONE") {
-      data <- filter(data, Company.Location == input$company)
+      data <- filter(data, Company.Location == input$country)
     }
     data <- arrange(data, desc(Rating))
   },
