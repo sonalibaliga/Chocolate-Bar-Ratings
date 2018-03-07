@@ -19,6 +19,11 @@ shinyServer(function(input, output) {
   
   output$table <- renderTable({
     data <- chocolate
+    data$Specific.Bean.Origin.or.Bar.Name <- NULL
+    data$REF <- NULL
+    data$Review.Date <- NULL
+    data$Bean.Type <- NULL
+    
     f <- function(x) {
       substring(x, 1, nchar(x)-1)
     }
