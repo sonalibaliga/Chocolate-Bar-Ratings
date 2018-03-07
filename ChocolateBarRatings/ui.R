@@ -19,6 +19,7 @@ shinyUI(fluidPage(theme="style.css",
     conditionalPanel(condition="input.selectedtab==1",h4("This panel will be used to display some important information that we want to stand out to our users when they first load this application. Useful info or maybe even an introduction will suffice."), 
                      tags$br(), 
                      h4("Content to be added later.")),
+    # Widgets for second tab
     conditionalPanel(condition="input.selectedtab==2",
                      sliderInput(inputId = "cocao%", label = "Cocoa Percentage Range",
                                  min = 40, max = 100, value = c(60, 80)),
@@ -45,6 +46,7 @@ shinyUI(fluidPage(theme="style.css",
                                                         "Venezuela"="Venezuela","Vietnam"="Vietnam","Wales"="Wales"), selected = "NONE")
     ),
     
+    # Widgets for third tab
     conditionalPanel(condition="input.selectedtab==3",
                      selectInput("property", label = "Choose a property to filter ratings by",
                                  choices = list("Company"="Company", "Cocoa Percent"="Cocoa Percent", "Location"="Location",
