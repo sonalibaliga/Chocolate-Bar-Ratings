@@ -61,6 +61,28 @@ body {
   color: #ddc08d;
   border-radius: 10px;
   border: none;
+  padding-bottom: 0px;
+}
+
+.cntr-head {
+  text-align: center;
+}
+
+.cntr {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.team {
+  display: inline-block;
+  padding-top: 25px;
+  color: #ddc08d;
+  text-align: center;
+}
+
+.shoutout-container {
+  bottom: 50;
+  text-align: center;
 }
 
 ::selection {
@@ -171,4 +193,40 @@ input[type='text'] {
 .well code {
   background-color: #302013;
   color: #FAEBD7;
+}
+
+.well button {
+
+  background-color: #71482f;
+  color: #fff;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.well button:hover {
+  background-color: #71482f;
+  color: #fff;
+  border: none;
+}
+
+.well button:active {
+  background-color: #71482f;
+  color: #fff;
+  border: none;
+}
+
+.well button:focus {
+  background-color: #71482f;
+  color: #fff;
+  border: none;
+}
+
+
+* {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }
