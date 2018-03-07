@@ -10,9 +10,6 @@ shinyUI(fluidPage(theme="style.css",
   headerPanel(""),
   headerPanel(""),
   
-  tags$br(),
-  tags$br(),
-  
   sidebarPanel(
     
     ## conditionalPanel() functions for selected tab

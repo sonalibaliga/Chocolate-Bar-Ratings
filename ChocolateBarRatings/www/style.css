@@ -78,6 +78,7 @@ body {
 }
 
 .tabbable > .nav > li > a {
+  font-family: "Roboto", sans-serif;
   background-color: #47261a;
   color: #fff;
   border-top-left-radius: 10px;
@@ -108,6 +109,9 @@ body {
 .tab-content {
   padding-top: 5px;
   padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
   background-color: #fff;
   border-radius: 10px;
   border-top-left-radius: 0px;
