@@ -84,6 +84,8 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border: none;
+  margin-bottom: 1px;
+  line-height: 1px;
 }
 
 .tabbable > .nav > li[class=active] > a {
@@ -115,7 +117,6 @@ body {
   background-color: #fff;
   border-radius: 10px;
   border-top-left-radius: 0px;
-  /*border-top-right-radius: 0px;*/
   border: none;
 }
 
