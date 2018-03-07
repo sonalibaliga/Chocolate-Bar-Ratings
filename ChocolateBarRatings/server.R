@@ -22,16 +22,16 @@ shinyServer(function(input, output) {
     f <- function(x) {
       substring(x, 1, nchar(x)-1)
     }
-    n <- apply (data$cocao, 1, f)
+    n <- lapply(data$Cocoa.Percent, f)
     n <- as.integer(n)
     
-    b1 <- (n >= input$cocoa[1]) 
-    b2 <- (n <= input$cocoa[2])
-    data <- data[b1 & b2]
+    b1 <- n >= input$cocao[1] 
+    b2 <- n <= input$cocao[2]
+    data <- filter(data, b1 & b2)
     if (input$beanorigin != "NONE") {
       data <- filter(data, Broad.Bean.Origin == input$beanorigin)
     }
-    if (input$company. != "NONE") {
+    if (input$country != "NONE") {
       data <- filter(data, Company.Location == input$company)
     }
     data <- arrange(data, desc(Rating))
