@@ -7,7 +7,7 @@ Animations made possible by @dragoeco
 */
 
 
-@import url('//fonts.googleapis.com/css?family=Lato:300|Roboto:300');
+@import url('//fonts.googleapis.com/css?family=Lato:100|Roboto:300');
 
 /* ANIMATIONS */
 @-webkit-keyframes bounce {
@@ -78,11 +78,14 @@ body {
 }
 
 .tabbable > .nav > li > a {
+  font-family: "Roboto", sans-serif;
   background-color: #47261a;
   color: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border: none;
+  margin-bottom: 1px;
+  line-height: 1px;
 }
 
 .tabbable > .nav > li[class=active] > a {
@@ -108,9 +111,15 @@ body {
 .tab-content {
   padding-top: 5px;
   padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
   background-color: #fff;
   border-radius: 10px;
   border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border: none;
+}
+
+.nav {
   border: none;
 }

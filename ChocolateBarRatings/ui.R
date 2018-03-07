@@ -4,18 +4,15 @@ library(markdown)
 shinyUI(fluidPage(theme="style.css",
                   
   headerPanel(title=div(img(src="cocoa.png"), "Flavors of Cocoa Ratings"), windowTitle = "Flavors of Cocoa Ratings"),
-  headerPanel(""),
-  headerPanel(""),
-  headerPanel(""),
-  headerPanel(""),
-  headerPanel(""),
   
-  tags$br(),
-  tags$br(),
+  headerPanel(""),
+  headerPanel(""),
+  headerPanel(""),
+  headerPanel(""),
+  headerPanel(""),
   
   sidebarPanel(
     
-    ## conditionalPanel() functions for selected tab
     conditionalPanel(condition="input.selectedtab==1",h4("This panel will be used to display some important information that we want to stand out to our users when they first load this application. Useful info or maybe even an introduction will suffice."), 
                      tags$br(), 
                      h4("Content to be added later.")),
@@ -31,7 +28,7 @@ shinyUI(fluidPage(theme="style.css",
                                                 "Philippines"="Philippines","PNG"="PNG","Principe"="Principe","Puerto Rico"="Puerto Rico","Samoa"="Samoa","Sao Tome"="Sao Tome","Solomon Islands"="Solomon Islands",
                                                 "South America"="South America","Sri Lanka"="Sri Lanka","St. Lucia"="St. Lucia","Suriname"="Suriname","Tanzania"="Tanzania","Tobago"="Tobago","Togo"="Togo","Trinidad"="Trinidad",
                                                 "Uganda"="Uganda","Vanuatu"="Vanuatu","Vanezuela"="Vanezuela","Vietnam"="Vietnam","West Africa"="West Africa"), selected = "NONE"),
-                     checkboxGroupInput("company", "Country/Countries of availability",
+                     checkboxGroupInput("country", "Country/Countries the cocoa company is availible in",
                                         choices =  list("NONE"="NONE","Brazil"="Brazil","Canada"="Canada","Chile"="Chile","Colombia"="Colombia","Costa Rica"="Costa Rica",
                                                         "Czech Republic"="Czech Republic","Denmark"="Denmark","Domincan Republic"="Domincan Republic",
                                                         "Ecuador"="Ecuador","Fiji"="Fiji","Finland"="Finland","France"="France","Germany"="Germany",
@@ -54,11 +51,10 @@ shinyUI(fluidPage(theme="style.css",
     
   ),
   mainPanel(
-    # do not change tabpanel values
     tabsetPanel(
       tabPanel("Documentation", value=1, icon=icon("book", lib="font-awesome"), includeMarkdown("www/docs.md")),
-      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome"), DT::dataTableOutput("mytable1")),
-      tabPanel("Visualize Ratings", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
+      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome")),
+      tabPanel("Cocoa Visualizations", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
       id = "selectedtab"
       )
   )
