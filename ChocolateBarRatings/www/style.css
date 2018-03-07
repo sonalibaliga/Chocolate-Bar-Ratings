@@ -108,8 +108,8 @@ body {
   color: #fff;
 }
 
-.tab-content {
-  padding-top: 5px;
+.tab-content{
+  padding-top: 10px;
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 5px;
@@ -120,6 +120,18 @@ body {
   border: none;
 }
 
+.table {
+
+}
+
 .nav {
   border: none;
+}
+
+.dataTables_filter, .dataTables_info {
+  display: none;
+}
+
+input[type='text'] {
+  display: none;
 }
