@@ -53,7 +53,7 @@ shinyUI(fluidPage(theme="style.css",
   mainPanel(
     tabsetPanel(
       tabPanel("Documentation", value=1, icon=icon("book", lib="font-awesome"), includeMarkdown("www/docs.md")),
-      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome"), tableOutput("table")),
+      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome"), dataTableOutput("table")),
       tabPanel("Cacao Visualizations", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
       id = "selectedtab"
       )
