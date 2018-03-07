@@ -43,10 +43,11 @@ shinyUI(fluidPage(theme="style.css",
     ),
     
     conditionalPanel(condition="input.selectedtab==3",
-                     selectInput("property", label = "Choose a property to filter ratings by",
+                     selectInput("property", label = "Choose a category to filter average ratings by",
                                  choices = list("Company"="Company", "Cocoa Percent"="Cocoa Percent", "Location"="Location",
                                                 "Broad Bean Origin"="Broad Bean Origin"),
-                                 selected = "Cocoa Percent")
+                                 selected = "Cocoa Percent"),
+                     includeMarkdown("www/visualization.md")
     )
     
   ),
