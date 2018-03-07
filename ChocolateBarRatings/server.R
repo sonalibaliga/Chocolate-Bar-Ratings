@@ -16,23 +16,13 @@ chocolate <- read.csv("./flavors_of_cacao.csv", header = TRUE, stringsAsFactors 
 
 # Define server logic required to draw a histogram and table 
 shinyServer(function(input, output) {
-<<<<<<< HEAD
-  
   output$table <- renderDataTable({
     data <- chocolate
     data$Specific.Bean.Origin.or.Bar.Name <- NULL
     data$REF <- NULL
     data$Review.Date <- NULL
     data$Bean.Type <- NULL
-    
-=======
-output$table <- renderTable({
-  data <- chocolate
-  data$Specific.Bean.Origin.or.Bar.Name <- NULL
-  data$REF <- NULL
-  data$Review.Date <- NULL
-  data$Bean.Type <- NULL
->>>>>>> 79f9b437ebe4b36915632792a0267b3cfd850e5a
+
     f <- function(x) {
       substring(x, 1, nchar(x)-1)
     }
