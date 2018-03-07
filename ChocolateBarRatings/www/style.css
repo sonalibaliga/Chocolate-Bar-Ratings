@@ -56,6 +56,7 @@ body {
 }
 
 .well {
+  font-family: 'Roboto', sans-serif;
   background-color: #47261a;
   color: #ddc08d;
   border-radius: 10px;
@@ -134,4 +135,9 @@ body {
 
 input[type='text'] {
   display: none;
+}
+
+code {
+  background-color: #302013;
+  color: #FAEBD7;
 }
