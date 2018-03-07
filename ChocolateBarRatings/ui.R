@@ -57,7 +57,7 @@ shinyUI(fluidPage(theme="style.css",
     # do not change tabpanel values
     tabsetPanel(
       tabPanel("Documentation", value=1, icon=icon("book", lib="font-awesome"), includeMarkdown("www/docs.md")),
-      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome")),
+      tabPanel("Table", value=2, icon=icon("table", lib="font-awesome"), DT::dataTableOutput("mytable1")),
       tabPanel("Visualize Ratings", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
       id = "selectedtab"
       )
