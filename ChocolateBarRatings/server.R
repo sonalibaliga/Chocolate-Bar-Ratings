@@ -10,12 +10,26 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+source("facts.R")
 
 #setwd("~/Desktop/Chocolate-Bar-Ratings")
 chocolate <- read.csv("./flavors_of_cacao.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding="UTF-8")
 
 # Define server logic required to draw table 
 shinyServer(function(input, output) {
+  fact <- eventReactive(input$factButton, {
+    generateFact()
+  })
+  
+  output$randomFact <- renderText({
+    if (is.null(input$factButton) || input$factButton == 0) {
+      generateFact()
+    }
+    else {
+      fact()
+    }
+  })
+  
   output$table <- renderDataTable({
     data <- chocolate
     data$Specific.Bean.Origin.or.Bar.Name <- NULL
