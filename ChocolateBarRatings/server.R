@@ -12,19 +12,25 @@ library(ggplot2)
 library(dplyr)
 
 #setwd("~/Desktop/Chocolate-Bar-Ratings")
-chocolate <- read.csv("./ChocolateBarRatings/flavors_of_cacao.csv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+chocolate <- read.csv("./flavors_of_cacao.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
+  
    
   output$distPlot <- renderPlot({
+    # if else to select what variable is being chosen to be grouped by
     if(input$property == "Company") {
-      relevant_data <- group_by(chocolate, Company...Maker.if.known.)
-      rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
-      rating_mean <- head(rating_mean, 10)
+      #group by
+      relevant_data <- group_by(chocolate, Company...Maker.if.known.) 
+      #summarise the rating
+      rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))  
+      #taking the top 10
+      rating_mean <- head(rating_mean, 10) 
+      #plot
       ggplot(rating_mean, aes(Company...Maker.if.known., mean_rating)) + 
         geom_col(aes(fill = Company...Maker.if.known.)) + 
-        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating")
+        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") 
     } else if(input$property == "Location") {
       relevant_data <- group_by(chocolate, Company.Location)
       rating_mean <- summarise(relevant_data, mean_rating = mean(Rating)) %>% arrange(desc(mean_rating))    
