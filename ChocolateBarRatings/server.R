@@ -49,7 +49,8 @@ shinyServer(function(input, output) {
       #plot
       ggplot(rating_mean, aes(Company...Maker.if.known., mean_rating)) + 
         geom_col(aes(fill = Company...Maker.if.known.)) + 
-        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") +
+        geom_text(aes(Company...Maker.if.known., mean_rating, label=round(mean_rating, digits=2)), vjust = 2, color = "white") +
+        labs(title = paste("Top Ten Cacao by", input$property), x = input$property, y = "Rating") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
         theme(legend.position="none")
     } else if(input$property == "Location") {
@@ -58,7 +59,8 @@ shinyServer(function(input, output) {
       rating_mean <- head(rating_mean, 10)
       ggplot(rating_mean, aes(Company.Location, mean_rating)) + 
         geom_col(aes(fill = Company.Location)) + 
-        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") + 
+        geom_text(aes(Company.Location, mean_rating, label=round(mean_rating, digits=2)), vjust = 2, color = "white") +
+        labs(title = paste("Top Ten Cacao by", input$property), x = input$property, y = "Rating") + 
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
         theme(legend.position="none")
     } else if(input$property == "Cocoa Percent") {
@@ -67,7 +69,8 @@ shinyServer(function(input, output) {
       rating_mean <- head(rating_mean, 10)
       ggplot(rating_mean, aes(Cocoa.Percent, mean_rating)) + 
         geom_col(aes(fill = Cocoa.Percent)) + 
-        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") + 
+        geom_text(aes(Cocoa.Percent, mean_rating, label=round(mean_rating, digits=2)), vjust = 2, color = "white") +
+        labs(title = paste("Top Ten Cacao by", input$property), x = input$property, y = "Rating") + 
         theme(legend.position="none")
     } else {
       relevant_data <- group_by(chocolate, Broad.Bean.Origin)
@@ -75,7 +78,8 @@ shinyServer(function(input, output) {
       rating_mean <- head(rating_mean, 10)
       ggplot(rating_mean, aes(Broad.Bean.Origin, mean_rating)) + 
         geom_col(aes(fill = Broad.Bean.Origin)) + 
-        labs(title = paste("Top Ten Chocolate by", input$property), x = input$property, y = "Rating") + 
+        geom_text(aes(Broad.Bean.Origin, mean_rating, label=round(mean_rating, digits=2)), vjust = 2, color = "white") +
+        labs(title = paste("Top Ten Cacao by", input$property), x = input$property, y = "Rating") + 
         theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
         theme(legend.position="none")
     }
