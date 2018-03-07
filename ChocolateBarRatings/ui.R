@@ -1,5 +1,6 @@
 library(shiny)
 library(markdown)
+source("facts.R")
 
 shinyUI(fluidPage(theme="style.css",
                   
@@ -13,9 +14,11 @@ shinyUI(fluidPage(theme="style.css",
   
   sidebarPanel(
     
-    conditionalPanel(condition="input.selectedtab==1",h4("This panel will be used to display some important information that we want to stand out to our users when they first load this application. Useful info or maybe even an introduction will suffice."), 
-                     tags$br(), 
-                     h4("Content to be added later.")),
+    conditionalPanel(condition="input.selectedtab==1",
+                     tags$div(class="cntr-head", h3("Did You Know?"),
+                      class="cntr-head", h5(textOutput("randomFact"))),
+                     tags$div(class="cntr", 
+                     actionButton("factButton", label = "Generate New Fact", icon=icon("retweet", lib="font-awesome")))),
     conditionalPanel(condition="input.selectedtab==2",
                      h4("Top Rated Cacao Companies"),
                      sliderInput(inputId = "cocao", label = "Cocoa Percentage Range",
@@ -50,7 +53,12 @@ shinyUI(fluidPage(theme="style.css",
                                                 "Broad Bean Origin"="Broad Bean Origin"),
                                  selected = "Cocoa Percent"),
                      includeMarkdown("www/visualization.md")
-    )
+    ),
+    
+    tags$div(class="shoutout-container",
+             tags$div(class="team", p("Made with ")),
+             tags$div(class="team", icon("heart", lib="font-awesome")),
+             tags$div(class="team", p(" by Team SPAM")))
     
   ),
   mainPanel(
