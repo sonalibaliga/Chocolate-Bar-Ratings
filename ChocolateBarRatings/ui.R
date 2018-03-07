@@ -3,7 +3,7 @@ library(markdown)
 
 shinyUI(fluidPage(theme="style.css",
                   
-  headerPanel(title=div(img(src="cocoa.png"), "Flavors of Cocoa Ratings"), windowTitle = "Flavors of Cocoa Ratings"),
+  headerPanel(title=div(img(src="cocoa.png"), "Flavors of Cacao Ratings"), windowTitle = "Flavors of Cacao Ratings"),
   
   headerPanel(""),
   headerPanel(""),
@@ -28,7 +28,7 @@ shinyUI(fluidPage(theme="style.css",
                                                 "Philippines"="Philippines","PNG"="PNG","Principe"="Principe","Puerto Rico"="Puerto Rico","Samoa"="Samoa","Sao Tome"="Sao Tome","Solomon Islands"="Solomon Islands",
                                                 "South America"="South America","Sri Lanka"="Sri Lanka","St. Lucia"="St. Lucia","Suriname"="Suriname","Tanzania"="Tanzania","Tobago"="Tobago","Togo"="Togo","Trinidad"="Trinidad",
                                                 "Uganda"="Uganda","Vanuatu"="Vanuatu","Vanezuela"="Vanezuela","Vietnam"="Vietnam","West Africa"="West Africa"), selected = "NONE"),
-                     checkboxGroupInput("country", "Country/Countries the cocoa company is availible in",
+                     checkboxGroupInput("country", "Country/Countries the cacao company is availible in",
                                         choices =  list("NONE"="NONE","Brazil"="Brazil","Canada"="Canada","Chile"="Chile","Colombia"="Colombia","Costa Rica"="Costa Rica",
                                                         "Czech Republic"="Czech Republic","Denmark"="Denmark","Domincan Republic"="Domincan Republic",
                                                         "Ecuador"="Ecuador","Fiji"="Fiji","Finland"="Finland","France"="France","Germany"="Germany",
@@ -54,7 +54,7 @@ shinyUI(fluidPage(theme="style.css",
     tabsetPanel(
       tabPanel("Documentation", value=1, icon=icon("book", lib="font-awesome"), includeMarkdown("www/docs.md")),
       tabPanel("Table", value=2, icon=icon("table", lib="font-awesome")),
-      tabPanel("Cocoa Visualizations", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
+      tabPanel("Cacao Visualizations", value=3, icon=icon("bar-chart-o", lib="font-awesome"), plotOutput("distPlot")), 
       id = "selectedtab"
       )
   )
