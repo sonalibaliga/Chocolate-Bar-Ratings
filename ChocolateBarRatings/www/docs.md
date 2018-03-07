@@ -1,21 +1,24 @@
-## Chocolate Bar Ratings
+## Crazy Cacao Documentation
 
-**About this project**
-For this INFO 201 final project, we used the _Chocolate Bar Ratings_ dataset to create an app that presents the user with the perfect list of chocolate companies based on the specifications they provide. In our app, we have two tabs that contribute different information.
+### General Information
+**Crazy Cacao** is an interactive web application built using the [Shiny](https://shiny.rstudio.com/) framework for R, utilizing the `flavors_of_cacao` dataset from [Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings). This application serves as an easy way for fresh cocoa enthusiasts and chocolate lovers alike to find the ideal tasting cacao that best suits their preferences. The main application is broken down into two different subsets, which include the *Rated Companies* and *Cacao Visualizations* utilities.
 
-Word to the wise, choosing to filter out bean origin in the first interactive tab will limit the results in the table you receive.
+#### Rated Companies
+The **Rated Companies** utility displays a table of companies in descending order of cacao rating. The purpose of this utility is to provide information about the best cacao companies by filtering data based on preference inputs. The utility has 3 widgets:
 
-On the **first tab**, we ask the user to chose a country or countries they want their chocolate to be available in, cocoa percentage and bean origin (optional). With this information, through filtration, we create a table that lists the chocolate companies that best meet the users needs. With this information, the user is free to make an informed decision on what company would sell their ideal chocolate. We also provide the chocolate ratings given by the dataset.
+* **Cocoa Percentage Range** - Defines the range of cocoa percent values to filter data by. By default, the slider is set to `60-80`.
+* **Bean Origin Preference** - Defines the location of the user's preferred cacao bean origin. By default, the dropdown is set to `No Preference` which includes all bean origins.
+* **Preferred Cacao Company Location** - Defines the preferred location of the cacao company. For example, a user who enjoys chocolate by Swiss companies might choose `Switzerland` from the dropdown. By default, the dropdown value is set to `Any`, which includes all company locations.
 
-On the **second tab**, we ask the user to choose a particular category. We create a bar plot that shows that shows the chosen category vs. the ratings. The categories are: Company location, Company (if known), Cocoa Percentage and Bean origin. We took an average of all the different category rating and provide a concise visualization so the user is able to comprehend, for example, which country has the best chocolate ratings or which bean origin has the best chocolate ratings. We provide the top 10.    
+The table on the right hand side of the widgets will display results based on user-defined inputs. The dropdown above the table can be used to display more results on the page. The page buttons below the table can be used to navigate through multiple pages of results.
 
-**Analysis**
-The difference in ratings aren't too dramatic but to a dedicated chocolate enthusiast (whom this app is intended for), even the smallest difference is a big deal.
+<img src="table.png" width="75%" style="display: block; margin: 0 auto; max-width: 530px;">
 
-The highest ratings for **company location** is Chile. In fact, they are the only ones to exceed a 3.5/5 rating. Chile has a surplus of high quality chocolate companies because majority of Chilean desserts involve using chocolate. It has only been a few years since they introduced high quality gourmet chocolate, but despite the short time period, the chocolate has already made a great impression on the locals and those from other countries.
+#### Cacao Visualizations
+The **Cacao Visualizations** utility displays a bar graph containing the top ten rated values of a user-defined category based on the collective average ratings for that specific category. This utility only contains a single dropdown widget:
 
-Tobago Estate is the **chocolate company** that has the highest ratings. The company originates in Trinidad and Tobago and was created by a family man, Duane Dove.
+* **Category** - Defines the specific category to filter the average ratings by. Choices include `Company`, `Cocoa Percent`, `Location`, and `Broad Bean Origin` with `Cocoa Percent` being selected by default.
 
-Many people tend to prefer chocolate that is 50% **cocoa percentage**. Since this is greatly subjective, further analysis cannot be made. There seems to be no correlation between cocoa percentage and ratings.
+The container on the right-hand side of the widget will display a graph with the top ten rated values of the category that was selected. For example, `Cocoa Percent` is selected from the dropdown by default. The displayed graph will show the top ten most popular cocoa percentages based on their collective average ratings.
 
-For **bean origin**, there were several countries that made it to the top. Something the top countries had in common is that most were from South America. South America has the ideal climate and agricultural space/competition to grow cocoa beans.
+<img src="graph.png" width="75%" style="display: block; margin: 0 auto; max-width:500px;">

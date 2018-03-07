@@ -71,11 +71,42 @@ body {
   background: #ddc08d
 }
 
-.irs-single {background: tomato}
-
 [class|='irs-bar'] {
   background: #ddc08d;
   border: #ddc08d
+}
+
+[class|='irs-max'] {
+  background: #302013;
+  border: #302013;
+  color: #fff;
+}
+
+[class|='irs-min'] {
+  background: #302013;
+  border: #302013;
+  color: #fff;
+}
+
+[class|='irs-from'] {
+  background: #302013;
+  border: #302013;
+  color: #fff;
+}
+
+[class|='irs-to'] {
+  background: #302013;
+  border: #302013;
+  color: #fff;
+}
+
+[class|='irs-grid'] {
+  color: #fff;
+}
+
+[class|='control-label'] {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 .tabbable > .nav > li > a {
@@ -137,7 +168,7 @@ input[type='text'] {
   display: none;
 }
 
-code {
+.well code {
   background-color: #302013;
   color: #FAEBD7;
 }
